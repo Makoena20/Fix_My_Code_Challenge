@@ -2,26 +2,24 @@
 
 class Square:
     
-    side = 0
-
-    def __init__(self, **kwargs):
-        for key, value in kwargs.items():
-            setattr(self, key, value)
+    def __init__(self, width=0, height=0):
+        self.width = width
+        self.height = height
 
     def area_of_my_square(self):
         """ Area of the square """
-        return self.side ** 2
+        return self.width * self.width
 
-    def perimeter_of_my_square(self):
-        """ Perimeter of the square """
-        return self.side * 4
+    def PerimeterOfMySquare(self):
+        return (self.width * 2) + (self.height * 2)
 
     def __str__(self):
-        return "{}/{}".format(self.side, self.side)
+        return f"Square: {self.width}/{self.height}"
 
 if __name__ == "__main__":
-    s = Square(side=12)
+
+    s = Square(width=12, height=12)
     print(s)
-    print("Area:", s.area_of_my_square())
-    print("Perimeter:", s.perimeter_of_my_square())
+    print(s.area_of_my_square())
+    print(s.PerimeterOfMySquare())
 
