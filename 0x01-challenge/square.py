@@ -1,25 +1,29 @@
 #!/usr/bin/python3
 
-class Square:
-    def __init__(self, width=0, height=0):
-        self.width = width
-        self.height = height
+class square():
+    
+    width = 0
+    height = 0
 
-    def area(self):
-        """Calculate the area of the square."""
-        return self.width * self.height
+    
+    def __init__(self, *args, **kwargs):
+        for key, value in kwargs.items():
+            setattr(self, key, value)
 
-    def perimeter(self):
-        """Calculate the perimeter of the square."""
-        return 2 * (self.width + self.height)
+    def area_of_my_square(self):
+        """ Area of the square """
+        return self.width * self.width
+
+    def PermiterOfMySquare(self):
+        return (self.width * 2) + (self.height * 2)
 
     def __str__(self):
-        """Return a string representation of the square."""
-        return f"Width: {self.width}, Height: {self.height}"
+        return "{}/{}".format(self.width, self.height)
 
 if __name__ == "__main__":
-    s = Square(width=12, height=12)
+
+    s = square(width=12, height=9)
     print(s)
-    print("Area:", s.area())
-    print("Perimeter:", s.perimeter())
+    print(s.area_of_my_square())
+    print(s.PermiterOfMySquare())
 
