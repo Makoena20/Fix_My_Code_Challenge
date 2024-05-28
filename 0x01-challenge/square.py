@@ -2,32 +2,27 @@
 
 class Square:
     
-    def __init__(self, size=0):
-        self.size = size
+    width = 0
+    height = 0
 
-    @property
-    def size(self):
-        return self._size
-
-    @size.setter
-    def size(self, value):
-        if value < 0:
-            raise ValueError("Size must be a non-negative value")
-        self._size = value
+    
+    def __init__(self, *args, **kwargs):
+        for key, value in kwargs.items():
+            setattr(self, key, value)
 
     def area_of_my_square(self):
         """ Area of the square """
-        return self.size * self.size
+        return self.width * self.width
 
     def perimeter_of_my_square(self):
-        return self.size * 4
+        return (self.width * 2) + (self.height * 2)
 
     def __str__(self):
-        return "{}/{}".format(self.size, self.size)
+        return "{}/{}".format(self.width, self.height)
 
 if __name__ == "__main__":
 
-    s = Square(size=12)
+    s = Square(width=12, height=9)
     print(s)
     print(s.area_of_my_square())
     print(s.perimeter_of_my_square())
